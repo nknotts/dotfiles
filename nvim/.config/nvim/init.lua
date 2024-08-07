@@ -22,7 +22,7 @@ vim.g.localleader = "\\"
 
 vim.opt.number = true
 vim.opt.cursorline = true
-vim.opt.colorcolumn = "72"
+vim.opt.colorcolumn = "80,120"
 
 require'lazy'.setup {
   spec = {
