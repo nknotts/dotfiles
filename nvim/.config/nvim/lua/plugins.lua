@@ -7,17 +7,7 @@ return {
     end,
   },  
   { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
-  { "f-person/auto-dark-mode.nvim",
-    opts = {
-      update_interval = 2000,
-      set_dark_mode = function()
-        vim.api.nvim_set_option("background", "dark")
-      end,
-      set_light_mode = function()
-        vim.api.nvim_set_option("background", "light")
-      end,
-    },
-  },
+  "vimpostor/vim-lumen",
   "neovim/nvim-lspconfig",
   "simrat39/rust-tools.nvim"
 }
