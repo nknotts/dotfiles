@@ -38,6 +38,11 @@ plug ohmyzsh/ohmyzsh plugins/rust/rust.plugin.zsh
 alias fork="open -a Fork"
 alias rcp="rsync -aP --exclude target --exclude .git --exclude env"
 
+if type nvim > /dev/null; then
+    alias vim="nvim"
+    alias vi="nvim"
+fi
+
 # load local config
 [ -f $HOME/.zshrc_local ] && source $HOME/.zshrc_local
 

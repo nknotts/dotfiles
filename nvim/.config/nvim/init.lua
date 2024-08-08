@@ -29,7 +29,7 @@ require'lazy'.setup {
     -- import your plugins
     { import = "plugins" },
   },
-  checker = { enabled = true },
+  checker = { enabled = true, frequency = 604800 },
 }
 
 
@@ -54,6 +54,3 @@ rt.setup({
     end,
   },
 })
-
-
-
