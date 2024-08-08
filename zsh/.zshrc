@@ -30,7 +30,15 @@ plug ohmyzsh/ohmyzsh lib/theme-and-appearance.zsh
 plug ohmyzsh/ohmyzsh plugins/rust/rust.plugin.zsh
 
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(starship init zsh)"
+
+# load starship prompt if available, falling back to ohmyzsh theme
+if type starship > /dev/null; then
+    eval "$(starship init zsh)"
+else;
+    plug ohmyzsh/ohmyzsh lib/async_prompt.zsh
+    plug ohmyzsh/ohmyzsh lib/git.zsh
+    plug ohmyzsh/ohmyzsh themes/robbyrussell.zsh-theme
+fi
 
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
