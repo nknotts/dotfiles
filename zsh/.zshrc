@@ -31,15 +31,6 @@ plug ohmyzsh/ohmyzsh plugins/rust/rust.plugin.zsh
 
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# load starship prompt if available, falling back to ohmyzsh theme
-if type starship > /dev/null; then
-    eval "$(starship init zsh)"
-else;
-    plug ohmyzsh/ohmyzsh lib/async_prompt.zsh
-    plug ohmyzsh/ohmyzsh lib/git.zsh
-    plug ohmyzsh/ohmyzsh themes/robbyrussell.zsh-theme
-fi
-
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
 
@@ -49,3 +40,12 @@ alias rcp="rsync -aP --exclude target --exclude .git --exclude env"
 
 # load local config
 [ -f $HOME/.zshrc_local ] && source $HOME/.zshrc_local
+
+# load starship prompt if available, falling back to ohmyzsh theme
+if [ "$DISABLE_STARSHIP" != "1" ] && type starship > /dev/null; then
+    eval "$(starship init zsh)"
+else;
+    plug ohmyzsh/ohmyzsh lib/async_prompt.zsh
+    plug ohmyzsh/ohmyzsh lib/git.zsh
+    plug ohmyzsh/ohmyzsh themes/robbyrussell.zsh-theme
+fi
