@@ -28,6 +28,7 @@ plug ohmyzsh/ohmyzsh lib/directories.zsh
 plug ohmyzsh/ohmyzsh lib/key-bindings.zsh
 plug ohmyzsh/ohmyzsh lib/theme-and-appearance.zsh
 plug ohmyzsh/ohmyzsh plugins/rust/rust.plugin.zsh
+plug zsh-users/zsh-autosuggestions zsh-autosuggestions.plugin.zsh
 
 AGKOZAK_LEFT_PROMPT_ONLY=1
 AGKOZAK_PROMPT_CHAR=( ❯ ❯ ❮ )
