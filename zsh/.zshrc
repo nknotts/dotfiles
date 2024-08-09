@@ -51,6 +51,23 @@ if (( $+commands[nvim] )); then
     alias vi="nvim"
 fi
 
+if (( $+commands[fzf] )); then
+    eval "$(fzf --zsh)"
+
+    if (( $+commands[fd] )); then
+        export FZF_DEFAULT_COMMAND='fd --type f'
+    fi
+
+    if (( $+commands[bat] )); then
+        if (( $+commands[eza] )); then
+            show_file_or_dir_preview="if [ -d {} ]; then eza --oneline --color=always {} | head -200; else bat --color=always {}; fi"
+            export FZF_DEFAULT_OPTS="--preview '$show_file_or_dir_preview'"
+        else;
+            export FZF_DEFAULT_OPTS='--preview "bat --color=always {}"'
+        fi
+    fi
+fi
+
 # load local config
 if [ -f $HOME/.zshrc_local ]; then
     source $HOME/.zshrc_local
