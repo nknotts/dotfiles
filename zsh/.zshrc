@@ -29,6 +29,12 @@ plug ohmyzsh/ohmyzsh lib/key-bindings.zsh
 plug ohmyzsh/ohmyzsh lib/theme-and-appearance.zsh
 plug ohmyzsh/ohmyzsh plugins/rust/rust.plugin.zsh
 
+AGKOZAK_LEFT_PROMPT_ONLY=1
+AGKOZAK_PROMPT_CHAR=( ❯ ❯ ❮ )
+AGKOZAK_COLORS_PROMPT_CHAR='magenta'
+AGKOZAK_PROMPT_DIRTRIM=5
+plug agkozak/agkozak-zsh-prompt agkozak-zsh-prompt.plugin.zsh
+
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
@@ -38,19 +44,12 @@ plug ohmyzsh/ohmyzsh plugins/rust/rust.plugin.zsh
 alias fork="open -a Fork"
 alias rcp="rsync -aP --exclude target --exclude .git --exclude env"
 
-if type nvim > /dev/null; then
+if (( $+commands[nvim] )); then
     alias vim="nvim"
     alias vi="nvim"
 fi
 
 # load local config
-[ -f $HOME/.zshrc_local ] && source $HOME/.zshrc_local
-
-# load starship prompt if available, falling back to ohmyzsh theme
-if [ "$DISABLE_STARSHIP" != "1" ] && type starship > /dev/null; then
-    eval "$(starship init zsh)"
-else;
-    plug ohmyzsh/ohmyzsh lib/async_prompt.zsh
-    plug ohmyzsh/ohmyzsh lib/git.zsh
-    plug ohmyzsh/ohmyzsh themes/robbyrussell.zsh-theme
+if [ -f $HOME/.zshrc_local ]; then
+    source $HOME/.zshrc_local
 fi
