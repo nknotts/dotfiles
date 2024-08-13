@@ -29,7 +29,8 @@ require'lazy'.setup {
     -- import your plugins
     { import = "plugins" },
   },
-  checker = { enabled = true, frequency = 604800 },
+  -- check once a month
+  checker = { enabled = true, frequency = 2628288 },
 }
 
 
