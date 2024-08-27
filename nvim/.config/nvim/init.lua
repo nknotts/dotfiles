@@ -751,6 +751,13 @@ require 'lazy'.setup {
         version = '^1.0.0', -- optional: only update when a new 1.x version is released
     },
 
+    {
+        "numToStr/Comment.nvim",
+        opts = {
+            -- add any options here
+        },
+    },
+
     -- check once a month
     checker = { enabled = true, frequency = 2628288 },
 }
