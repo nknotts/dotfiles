@@ -12,13 +12,12 @@
   "languages": {
     "Python": {
       "format_on_save": "on",
-      "formatter": [
-        {
-          "language_server": {
-            "name": "ruff"
-          }
+      "formatter": {
+        "external": {
+          "command": "ruff",
+          "arguments": ["format", "-"]
         }
-      ]
+      }
     }
   },
   "lsp": {
