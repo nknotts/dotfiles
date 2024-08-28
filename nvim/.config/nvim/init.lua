@@ -12,6 +12,8 @@ vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.colorcolumn = "80,120"
 
+vim.opt.tabstop = 4
+
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
