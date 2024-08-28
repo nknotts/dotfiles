@@ -19,7 +19,8 @@ config.quit_when_all_windows_are_closed = false
 
 config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
 
-config.window_background_opacity = 0.95
+config.window_decorations = "INTEGRATED_BUTTONS | RESIZE | MACOS_FORCE_ENABLE_SHADOW"
+config.window_background_opacity = 0.90
 
 config.keys = {
     {
