@@ -1,5 +1,5 @@
 {
-  "vim_mode": false,
+  "vim_mode": true,
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
