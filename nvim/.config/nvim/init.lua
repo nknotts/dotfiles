@@ -477,7 +477,21 @@ require("lazy").setup({
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
 				clangd = {},
-				gopls = {},
+				gopls = {
+					settings = {
+						gopls = {
+							hints = {
+								rangeVariableTypes = true,
+								parameterNames = true,
+								constantValues = true,
+								assignVariableTypes = true,
+								compositeLiteralFields = true,
+								compositeLiteralTypes = true,
+								functionTypeParameters = true,
+							},
+						},
+					},
+				},
 				pyright = {},
 				rust_analyzer = {},
 
@@ -645,6 +659,15 @@ require("lazy").setup({
 					{ name = "path" },
 				},
 			})
+		end,
+	},
+
+	{
+		"MysticalDevil/inlay-hints.nvim",
+		event = "LspAttach",
+		dependencies = { "neovim/nvim-lspconfig" },
+		config = function()
+			require("inlay-hints").setup()
 		end,
 	},
 
