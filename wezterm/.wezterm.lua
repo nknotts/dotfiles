@@ -1,13 +1,12 @@
 -- Pull in the wezterm API
-local wezterm = require 'wezterm'
-
+local wezterm = require("wezterm")
 
 local function scheme_for_appearance(appearance)
-    if appearance:find "Dark" then
-        return "Catppuccin Mocha"
-    else
-        return "Catppuccin Latte"
-    end
+	if appearance:find("Dark") then
+		return "Catppuccin Mocha"
+	else
+		return "Catppuccin Latte"
+	end
 end
 
 -- This will hold the configuration.
@@ -23,11 +22,11 @@ config.window_decorations = "INTEGRATED_BUTTONS | RESIZE | MACOS_FORCE_ENABLE_SH
 config.window_background_opacity = 0.90
 
 config.keys = {
-    {
-        key = 'Space',
-        mods = 'CTRL',
-        action = wezterm.action.SendKey { key = 'b', mods = 'CTRL' }
-    }
+	{
+		key = "Space",
+		mods = "CTRL",
+		action = wezterm.action.SendKey({ key = "b", mods = "CTRL" }),
+	},
 }
 
 -- and finally, return the configuration to wezterm
