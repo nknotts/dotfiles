@@ -1,0 +1,99 @@
+{
+  "layer": "top",
+  "position": "top",
+  "exclusive": true,
+  "passthrough": false,
+  "ipc": false,
+  "reload_style_on_change": true,
+  "margin-bottom": -2,
+  "margin-top": 2,
+  "modules-left": ["custom/launcher", "cpu","memory", "hyprland/workspaces"],
+  "modules-right":[
+    "pulseaudio",
+    "backlight",
+    "battery", 
+    "clock",
+    "tray"
+  ],
+  "tray": {
+    "icon-size": 18,
+    "spacing": 5
+  },
+  "cpu": {
+    "interval": 15,
+    "format": " {}%",
+    "max-length": 10
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {}%",
+    "max-length": 10
+  },
+  "clock": {
+    "interval": 1,
+    "timezone": "US/Eastern",
+    //"format": " {:%I:%M:%s %p}",
+    "format": " {:%I:%M:%S %p  󰃭 %Y-%m-%d}",
+    "tooltip-format": "<span>{calendar}</span>",
+    "calendar": {
+        "mode": "month",
+        "mode-mon-col": 3,
+        "on-scroll": 1,
+        "on-click-right": "mode",
+        "format": {
+            "months": "<span color='#ffead3'><b>{}</b></span>",
+            "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+            "today": "<span color='#ff6699'><b>{}</b></span>"
+        }
+    },
+    "actions": {
+        "on-click-right": "mode",
+        "on-click-forward": "tz_up",
+        "on-click-backward": "tz_down",
+        "on-scroll-up": "shift_up",
+        "on-scroll-down": "shift_down"
+    }
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 10,
+      "critical": 10
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "pulseaudio": {
+    "tooltip": false,
+    "format": "{icon} {volume}%",
+    "format-muted": "🔇 Muted",
+    "on-click": "pamixer -t",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pamixer -i 2",
+    "on-scroll-down": "pamixer -d 2",
+    "scroll-step": 2,
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰋋",
+      "headset": "󰋋",
+      "phone": "󰷰",
+      "portable": "󰷰",
+      "car": "󰄋",
+      "default": [ "🔈","🔉", "🔊"]
+    }
+  },
+  "hyrpland/workspaces": {
+    "format": "{icon}",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "on-click": "activate"
+  },
+}
