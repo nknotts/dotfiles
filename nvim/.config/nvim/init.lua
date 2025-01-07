@@ -101,6 +101,8 @@ vim.keymap.set("n", "<leader>j", "<C-w><C-j>", { desc = "Move focus to the lower
 vim.keymap.set("n", "<leader>k", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 vim.keymap.set("n", "<leader><tab>", "<C-w><C-w>", { desc = "Move focus to next split" })
 
+vim.keymap.set("n", "<C-CR>", ":lua vim.lsp.buf.code_action()<CR>", { desc = "Move focus to next split" })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
