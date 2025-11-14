@@ -559,12 +559,17 @@ require("lazy").setup({
 		"saghen/blink.nvim",
 		version = "*",
 		lazy = false,
+		opts = {},
+	},
+
+	{
+		"saghen/blink.indent",
+		version = "*",
+		lazy = false,
 		opts = {
-			indent = {
-				enabled = true,
-				scope = {
-					underline = { enabled = true },
-				},
+			enabled = true,
+			scope = {
+				underline = { enabled = true },
 			},
 		},
 	},
