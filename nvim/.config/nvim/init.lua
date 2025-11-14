@@ -103,6 +103,8 @@ vim.keymap.set("n", "<leader><tab>", "<C-w><C-w>", { desc = "Move focus to next 
 
 vim.keymap.set("n", "<C-CR>", ":lua vim.lsp.buf.code_action()<CR>", { desc = "Move focus to next split" })
 
+vim.keymap.set("n", "<leader>s", "<cmd>LspClangdSwitchSourceHeader<CR>", { desc = "Switch between source/header" })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
